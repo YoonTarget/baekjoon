@@ -1,0 +1,9 @@
+package com.baekjoon.run;
+
+public class QuadrantRun {
+
+	public static void main(String[] args) {
+
+	}
+
+}
