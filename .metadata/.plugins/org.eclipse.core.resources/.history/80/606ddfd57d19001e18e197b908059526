@@ -9,12 +9,14 @@ public class SumRun {
 		Scanner sc = new Scanner(System.in);
 		
 		int num = sc.nextInt();
+		int result = 0;
 		
 		for(int i = 0; i < num; i++) {
 			int a = sc.nextInt();
 			int b = sc.nextInt();
-			System.out.println(a + b);
+			result = a + b;
 		}
+		System.out.println(result);
 		
 		sc.close();
 
