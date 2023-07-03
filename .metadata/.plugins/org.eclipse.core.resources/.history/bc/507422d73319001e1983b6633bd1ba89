@@ -1,0 +1,33 @@
+package com.baekjoon.run;
+
+import java.util.Scanner;
+
+public class OvenRun {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int m = sc.nextInt();
+		int time = sc.nextInt();
+		
+		if(h >= 0 && h <= 23 && m >= 0 && m <= 59 && time >=0 && time <= 1000) {
+			if(m + time >= 60) {
+				h += 1;
+				m += (time - 60);
+				if(m == 60) {
+					m = 0;
+				}
+			}
+			else {
+				m += time;
+			}
+		}
+		
+		System.out.println(h + " " + m);
+		
+		sc.close();
+
+	}
+
+}
