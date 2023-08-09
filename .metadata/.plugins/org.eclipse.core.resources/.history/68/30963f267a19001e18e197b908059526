@@ -1,9 +1,0 @@
-package com.baekjoon.run;
-
-public class DiceRun {
-
-	public static void main(String[] args) {
-
-	}
-
-}

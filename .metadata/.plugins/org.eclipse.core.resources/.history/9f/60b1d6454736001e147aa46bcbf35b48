@@ -1,0 +1,9 @@
+package com.baekjoon.upgrade;
+
+public class ChessRun {
+
+	public static void main(String[] args) {
+
+	}
+
+}

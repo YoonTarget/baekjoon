@@ -1,9 +1,0 @@
-package com.baekjoon.run;
-
-public class OvenRun {
-
-	public static void main(String[] args) {
-
-	}
-
-}

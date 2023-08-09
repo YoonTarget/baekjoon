@@ -1,0 +1,17 @@
+package com.baekjoon.upgrade;
+
+import java.util.Scanner;
+
+public class ChessRun {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		
+		
+		sc.close();
+
+	}
+
+}

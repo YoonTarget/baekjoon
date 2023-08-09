@@ -1,9 +1,0 @@
-package com.baekjoon.loopRun;
-
-public class LongRun {
-
-	public static void main(String[] args) {
-
-	}
-
-}
