@@ -1,0 +1,9 @@
+package com.baekjoon.morgo;
+
+public class Morgo {
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.baekjoon.morgo;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Morgo {
+
+	public static void main(String[] args) {
+		
+		// 스캐너 생성
+		Scanner sc = new Scanner(System.in);
+		
+		// 인원 수 입력
+		int count = sc.nextInt();
+		
+		ArrayList<String> list = new ArrayList<String>();
+		
+		for(int i=0; i<count; i++) {
+			
+			
+			
+		}
+		
+		sc.close();
+
+	}
+
+}
