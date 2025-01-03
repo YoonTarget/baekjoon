@@ -47,14 +47,11 @@ public class No_1157 {
 
         str = str.toUpperCase(); // 대문자 변환
 
-//        Map<Character, Integer> strMap = getMap(str); // 문자별 사용 횟수 저장
-
         Map<Character, Integer> map = new HashMap<>();
         for(char ch : str.toCharArray()) {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
-//        System.out.println(getAnswer(strMap)); // 결과 출력
         int maxCnt = 0;
         char maxChar = ' ';
         boolean isDuplicate = false;
@@ -89,32 +86,5 @@ public class No_1157 {
             }
         }
         return false;
-    }
-
-    // 각 문자별 횟수 저장
-    private static Map<Character, Integer> getMap(String str) {
-        Map<Character, Integer> map = new HashMap<>();
-        for(int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
-        }
-        return map;
-    }
-
-    // 결과 세팅
-    private static String getAnswer(Map<Character, Integer> strMap) {
-        int maxCnt = 0;
-        String maxChar = "";
-        boolean duplicate = false;
-        for (Map.Entry<Character, Integer> entry : strMap.entrySet()) {
-            if (entry.getValue() > maxCnt) {
-                maxCnt = entry.getValue();
-                maxChar = entry.getKey().toString();
-                duplicate = false;
-            } else if (entry.getValue() == maxCnt) {
-                duplicate = true;
-            }
-        }
-        return duplicate ? "?" : maxChar;
     }
 }
