@@ -65,7 +65,7 @@ public class No_10798 {
 
         for (int i = 0; i < arr.length; i++) {
             String line = arr[i] = br.readLine();
-            if(line.length() > colSize) colSize = line.length();
+            colSize = Math.max(colSize, line.length());
             sb.append(line.charAt(0));
         }
 
