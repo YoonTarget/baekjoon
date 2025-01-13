@@ -3,6 +3,8 @@ package multi_array;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -24,9 +26,9 @@ import java.util.StringTokenizer;
  *
  * 예제 입력 1
  * 3
- * 3 7 / 13 7 / 13 17 / 3 17
- * 15 7 / 25 7 / 25 17 / 15 17
- * 5 2 / 15 2 / 15 12 / 5 12
+ * 3 7 / 3 17 / 13 17 / 13 7
+ * 15 7 / 15 17 / 25 17 / 25 7
+ * 5 2 / 5 12 / 15 12 / 15 2
  * 예제 출력 1
  * 260
  */
@@ -39,26 +41,47 @@ public class No_2563 {
         int maxY = 0;
         int minX = 0;
         int minY = 0;
+        int result = 0;
+        Map<String, int[][]> map = new HashMap<>();
 
         int n = Integer.parseInt(br.readLine());
-//        String[] arr = new String[n];
         for (int i = 0; i < n; i++) {
+            int[][] arr = new int[4][2];
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-//            int count = st.countTokens();
-//            for(int i = 0; i < count; i++) {
-//                arr[i] = st.nextToken();
-//            }
-            maxX = getMaxValue(maxX, x);
+            setMap(map, arr, x, y, i);
+            result = getResult(result, map);
+            /*maxX = getMaxValue(maxX, x);
             minX = (i == 0 ? x : getMinValue(minX, x));
             maxY = getMaxValue(maxY, y);
-            minY = (i == 0 ? y : getMinValue(minY, y));
+            minY = (i == 0 ? y : getMinValue(minY, y));*/
         }
 
-        System.out.println((maxX + 10 - minX) * (maxY + 10 - minY));
+//        System.out.println((maxX + 10 - minX) * (maxY + 10 - minY));
 
         br.close();
+    }
+
+    private static int getResult(int result, Map<String,int[][]> map) {
+        if(map.size() > 1) {
+            return 0;
+        }
+        else {
+            return 100;
+        }
+    }
+
+    private static void setMap(Map<String,int[][]> map, int[][] arr, int x, int y, int num) {
+        // 3 7 / 3 17 / 13 17 / 13 7
+        for (int i = 0; i < arr.length; i++) {
+            int tempX = (i > 1 ? x + 10 : x);
+            int tempY = (i > 0 && i < 3 ? y + 10 : y);
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = (j == 0 ? tempX : tempY);
+            }
+        }
+        map.put("arr" + (num + 1), arr);
     }
 
     private static int getMaxValue(int max, int num) {
