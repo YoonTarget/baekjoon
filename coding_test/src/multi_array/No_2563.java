@@ -37,58 +37,26 @@ public class No_2563 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        int maxX = 0;
-        int maxY = 0;
-        int minX = 0;
-        int minY = 0;
-        int result = 0;
-        Map<String, int[][]> map = new HashMap<>();
+        int[][] arr = new int[100][100];
+        int num = Integer.parseInt(br.readLine());
+        int sum = 0;
 
-        int n = Integer.parseInt(br.readLine());
-        for (int i = 0; i < n; i++) {
-            int[][] arr = new int[4][2];
+        for (int i = 0; i < num; i++) {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-            setMap(map, arr, x, y, i);
-            result = getResult(result, map);
-            /*maxX = getMaxValue(maxX, x);
-            minX = (i == 0 ? x : getMinValue(minX, x));
-            maxY = getMaxValue(maxY, y);
-            minY = (i == 0 ? y : getMinValue(minY, y));*/
-        }
-
-//        System.out.println((maxX + 10 - minX) * (maxY + 10 - minY));
-
-        br.close();
-    }
-
-    private static int getResult(int result, Map<String,int[][]> map) {
-        if(map.size() > 1) {
-            return 0;
-        }
-        else {
-            return 100;
-        }
-    }
-
-    private static void setMap(Map<String,int[][]> map, int[][] arr, int x, int y, int num) {
-        // 3 7 / 3 17 / 13 17 / 13 7
-        for (int i = 0; i < arr.length; i++) {
-            int tempX = (i > 1 ? x + 10 : x);
-            int tempY = (i > 0 && i < 3 ? y + 10 : y);
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = (j == 0 ? tempX : tempY);
+            for(int j = y; j < y + 10; j++) {
+                for(int k = x; k < x + 10; k++) {
+                    if(arr[j][k] == 0) {
+                        arr[j][k] = 1;
+                        sum++;
+                    }
+                }
             }
         }
-        map.put("arr" + (num + 1), arr);
-    }
 
-    private static int getMaxValue(int max, int num) {
-        return Math.max(max, num);
-    }
+        System.out.println(sum);
 
-    private static int getMinValue(int min, int num) {
-        return Math.min(min, num);
+        br.close();
     }
 }
