@@ -3,6 +3,8 @@ package math1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.time.format.DecimalStyle;
 import java.util.StringTokenizer;
 
 /**
@@ -34,21 +36,38 @@ public class No_2745 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        String n = st.nextToken();
-        int b = Integer.parseInt(st.nextToken());
+        String target = st.nextToken();
+        int base = Integer.parseInt(st.nextToken());
 
-        int a = n.length() - 1;
-        for(char ch : n.toCharArray()) {
-            int c = a--;
-            for(int i = 0; i < c; i++) {
-                int d = getNum(ch, b);
-            }
+        if (base == 10) {
+            System.out.println(target);
+        } else {
+            System.out.println(getResult(target, base));
         }
 
         br.close();
     }
 
-    private static int getNum(char ch, int b) {
-        return 0;
+    private static long getResult(String target, int base) {
+        target = new StringBuilder(target).reverse().toString();
+        int result = 0;
+        for (int i = 0; i < target.length(); i++) {
+            int temp = base;
+            int num = (temp < 10 ? Integer.parseInt(String.valueOf(target.charAt(i))) : getNum(target.charAt(i)));
+            if(i == 0) {
+                result += num;
+            }
+            else {
+                for(int j = 0; j < i - 1; j++) {
+                    temp *= base;
+                }
+                result += num * temp;
+            }
+        }
+        return result;
+    }
+
+    private static int getNum(char ch) {
+        return ch >= 65 && ch <= 90 ? ch - 55 : Integer.parseInt(String.valueOf(ch));
     }
 }
