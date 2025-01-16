@@ -72,11 +72,11 @@ public class No_1193 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        int temp = n;
         int minusValue = 1;
         int plusValue = 1;
 
-        if(temp > 1) {
+        if(n > 1) {
+            int temp = n;
             int cnt = 0; // 대각 라인 수
 
             while (temp > 0) {
@@ -87,6 +87,16 @@ public class No_1193 {
 
             minusValue = cnt - diff; // 차이만큼 -
             plusValue += diff; // 차이만큼 +
+
+            /* 1등 코드
+            int cnt = 1;
+
+            while (n > cnt) {
+                n -= cnt++;
+            }
+
+            minusValue = n;
+            plusValue = cnt - n + 1;*/
 
             if(cnt % 2 == 0) { // 대각 라인의 위치가 짝수일 때
                 System.out.printf("%d/%d", minusValue, plusValue);
